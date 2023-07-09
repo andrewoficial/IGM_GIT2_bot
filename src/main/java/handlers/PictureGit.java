@@ -43,7 +43,7 @@ public class PictureGit {
      *
      * @param gitAddress String i.e. http://192.168.1.162:3000
      * @param login String login.
-     * @paran password String password.
+     * @param password String password.
      * @throws ExceptionInInitializerError An initialization exception will be thrown for multiple reasons.
      *  - Unsuccessful interaction with the file system.
      *  - Wrong size image received.

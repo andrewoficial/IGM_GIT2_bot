@@ -19,7 +19,7 @@ public class NetworkTest {
 
     @BeforeEach
     public void setUp() {
-        // Инициализация объекта Network перед каждым тестом
+        //Initializing the Network object before each test
         network = new Network(null);
     }
 

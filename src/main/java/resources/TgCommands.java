@@ -6,18 +6,18 @@ public enum TgCommands implements TgCommand{
 
     start("/start",
             "Команда инициализации бота") {
+
+        String answer = "I am a bot written in Java by Andrei Kantser for the EMI-Pribor company. " +
+                "\n I can asynchronously notify about new events on the company's local repository and respond to some commands. " +
+                "\n Their list is available with the /help command";
         @Override
         public void run() {
-            System.out.println("Я бот, написанный на Java  Канцером Андреем для компании ЭМИ-Прибор. " +
-                    "\n Я умею асинхронно оповещать о новых событиях на локальном репозитории компании и отвечать на некоторые команды. " +
-                    "\n Их список доступен по команде /help");
+            System.out.println(answer);
         }
 
         @Override
         public String getTextAnswer() {
-            return "Я бот, написанный на Java  Канцером Андреем для компании ЭМИ-Прибор. " +
-                    "\n Я умею асинхронно оповещать о новых событиях на локальном репозитории компании и отвечать на некоторые команды. " +
-                    "\n Их список доступен по команде /help";
+            return answer;
         }
         public String getCommand(){
             return this.command;
