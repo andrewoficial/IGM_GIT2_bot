@@ -1,0 +1,155 @@
+X-GitHub-Event: issue_comment
+X-Gitea-Delivery: a7ddba9f-4987-45ff-985f-3c16c648c9f3
+X-Gitea-Event: issue_comment
+X-Gitea-Signature: 
+X-Gogs-Delivery: a7ddba9f-4987-45ff-985f-3c16c648c9f3
+X-Gogs-Event: issue_comment
+X-Gogs-Signature: 
+Accept-Encoding: gzip
+
+{
+  "secret": "",
+  "action": "created",
+  "issue": {
+    "id": 603,
+    "url": "http://192.168.1.162:3000/api/v1/repos/Andrew/LocalPortal/issues/72",
+    "html_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72",
+    "number": 72,
+    "user": {
+      "id": 1,
+      "login": "Andrew",
+      "full_name": "Канцер Андрей Андреевич",
+      "email": "work.andrey.igm@yandex.ru",
+      "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+      "language": "ru-RU",
+      "is_admin": true,
+      "last_login": "2023-06-28T11:35:01+03:00",
+      "created": "2020-02-10T20:21:23+03:00",
+      "username": "Andrew"
+    },
+    "original_author": "",
+    "original_author_id": 0,
+    "title": "Открытие новой задачи",
+    "body": "Комментарий к открытию",
+    "labels": [
+      {
+        "id": 15,
+        "name": "bug",
+        "color": "ee0701",
+        "description": "Something is not working",
+        "url": ""
+      }
+    ],
+    "milestone": null,
+    "assignee": null,
+    "assignees": null,
+    "state": "open",
+    "comments": 5,
+    "created_at": "2023-06-28T11:39:51+03:00",
+    "updated_at": "2023-06-28T11:52:12+03:00",
+    "closed_at": null,
+    "due_date": null,
+    "pull_request": null,
+    "repository": {
+      "id": 7,
+      "name": "LocalPortal",
+      "owner": "Andrew",
+      "full_name": "Andrew/LocalPortal"
+    }
+  },
+  "comment": {
+    "id": 3464,
+    "html_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72#issuecomment-3464",
+    "pull_request_url": "",
+    "issue_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72",
+    "user": {
+      "id": 1,
+      "login": "Andrew",
+      "full_name": "Канцер Андрей Андреевич",
+      "email": "work.andrey.igm@yandex.ru",
+      "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+      "language": "ru-RU",
+      "is_admin": true,
+      "last_login": "2023-06-28T11:35:01+03:00",
+      "created": "2020-02-10T20:21:23+03:00",
+      "username": "Andrew"
+    },
+    "original_author": "",
+    "original_author_id": 0,
+    "body": "Добавление комментаия с няшным киллуа но в тексте JPG (ножницы)\r\n\r\nХоба\r\n\r\n![изображение](/attachments/60e32876-b794-4645-b020-2d0dd1c0bf5a)\r\n\r\nХоба 2\r\n\r\n![изображение](/attachments/f551a29b-f485-43a2-bbdb-a0b735a4359b)",
+    "created_at": "2023-06-28T11:52:12+03:00",
+    "updated_at": "2023-06-28T11:52:12+03:00"
+  },
+  "repository": {
+    "id": 7,
+    "owner": {
+      "id": 1,
+      "login": "Andrew",
+      "full_name": "Канцер Андрей Андреевич",
+      "email": "work.andrey.igm@yandex.ru",
+      "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+      "language": "ru-RU",
+      "is_admin": true,
+      "last_login": "2023-06-28T11:35:01+03:00",
+      "created": "2020-02-10T20:21:23+03:00",
+      "username": "Andrew"
+    },
+    "name": "LocalPortal",
+    "full_name": "Andrew/LocalPortal",
+    "description": "LocalPortal",
+    "empty": false,
+    "private": true,
+    "fork": false,
+    "template": false,
+    "parent": null,
+    "mirror": false,
+    "size": 777328,
+    "html_url": "http://192.168.1.162:3000/Andrew/LocalPortal",
+    "ssh_url": "andrew@192.168.1.162:Andrew/LocalPortal.git",
+    "clone_url": "http://192.168.1.162:3000/Andrew/LocalPortal.git",
+    "original_url": "",
+    "website": "",
+    "stars_count": 0,
+    "forks_count": 0,
+    "watchers_count": 1,
+    "open_issues_count": 9,
+    "open_pr_counter": 0,
+    "release_counter": 0,
+    "default_branch": "master",
+    "archived": false,
+    "created_at": "2020-07-31T22:09:09+03:00",
+    "updated_at": "2023-02-10T12:43:32+03:00",
+    "permissions": {
+      "admin": true,
+      "push": true,
+      "pull": true
+    },
+    "has_issues": true,
+    "internal_tracker": {
+      "enable_time_tracker": true,
+      "allow_only_contributors_to_track_time": true,
+      "enable_issue_dependencies": true
+    },
+    "has_wiki": true,
+    "has_pull_requests": true,
+    "ignore_whitespace_conflicts": false,
+    "allow_merge_commits": true,
+    "allow_rebase": true,
+    "allow_rebase_explicit": true,
+    "allow_squash_merge": true,
+    "avatar_url": ""
+  },
+  "sender": {
+    "id": 1,
+    "login": "Andrew",
+    "full_name": "Канцер Андрей Андреевич",
+    "email": "work.andrey.igm@yandex.ru",
+    "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+    "language": "ru-RU",
+    "is_admin": true,
+    "last_login": "2023-06-28T11:35:01+03:00",
+    "created": "2020-02-10T20:21:23+03:00",
+    "username": "Andrew"
+  },
+  "is_pull": false
+}       

@@ -1,0 +1,66 @@
+2023-06-29 21:05:11,697 [main] INFO  Application - run telegram handler...
+2023-06-29 21:05:11,789 [Thread-3] INFO  handlers.Network -   
+server configured successfully
+   BUF_SIZE:15024
+   address:0.0.0.0/0.0.0.0:2222
+   summary info:sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:2222]
+2023-06-29 21:05:27,118 [Thread-3] INFO  handlers.Network - LocalPortal
+2023-06-29 21:05:27,121 [Thread-3] INFO  handlers.Network - Разные картинки в большом количестве
+![изображение](/attachments/c12a001c-1e67-4a1d-8e13-4ced89f2975f)
+Кот вырезан ножницами
+
+![изображение](/attachments/400ff8b4-dc66-4460-9d65-d1d4528d76af)
+Облака вырезаны ClipToBoard
+
+![изображение](/attachments/4de1d44e-6dcd-4b58-82f5-2254da34861f)
+Итачи вырезан (саске) в ЯндексДиске
+2023-06-29 21:05:27,123 [Thread-3] INFO  handlers.Network - work.andrey.igm@yandex.ru
+2023-06-29 21:07:23,374 [main] INFO  Application - run telegram handler...
+2023-06-29 21:07:23,475 [Thread-3] INFO  handlers.Network -   
+server configured successfully
+   BUF_SIZE:15024
+   address:0.0.0.0/0.0.0.0:2222
+   summary info:sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:2222]
+2023-06-29 21:07:41,018 [Thread-3] INFO  handlers.Network - LocalPortal
+2023-06-29 21:07:41,018 [Thread-3] INFO  handlers.Network - Разные картинки в большом количестве
+![изображение](/attachments/c12a001c-1e67-4a1d-8e13-4ced89f2975f)
+Кот вырезан ножницами
+
+![изображение](/attachments/400ff8b4-dc66-4460-9d65-d1d4528d76af)
+Облака вырезаны ClipToBoard
+
+![изображение](/attachments/4de1d44e-6dcd-4b58-82f5-2254da34861f)
+Итачи вырезан (саске) в ЯндексДиске
+2023-06-29 21:07:41,020 [Thread-3] INFO  handlers.Network - work.andrey.igm@yandex.ru
+2023-06-29 21:09:43,603 [main] INFO  Application - run telegram handler...
+2023-06-29 21:09:43,858 [Thread-3] INFO  handlers.Network -   
+server configured successfully
+   BUF_SIZE:15024
+   address:0.0.0.0/0.0.0.0:2222
+   summary info:sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:2222]
+2023-06-29 21:09:53,707 [Thread-3] INFO  handlers.Network - LocalPortal
+2023-06-29 21:09:53,725 [Thread-3] INFO  handlers.Network - ![изображение](/attachments/c12a001c-1e67-4a1d-8e13-4ced89f2975f)
+Кот вырезан ножницами
+2023-06-29 21:09:53,726 [Thread-3] INFO  handlers.Network - work.andrey.igm@yandex.ru
+2023-06-29 21:13:28,342 [main] INFO  Application - run telegram handler...
+2023-06-29 21:13:28,446 [Thread-3] INFO  handlers.Network -   
+server configured successfully
+   BUF_SIZE:15024
+   address:0.0.0.0/0.0.0.0:2222
+   summary info:sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:2222]
+2023-06-29 21:13:42,361 [Thread-3] INFO  handlers.Network - LocalPortal
+2023-06-29 21:13:42,361 [Thread-3] INFO  handlers.Network - ![изображение](/attachments/400ff8b4-dc66-4460-9d65-d1d4528d76af)
+Облака вырезаны ClipToBoard
+2023-06-29 21:13:42,385 [Thread-3] INFO  handlers.Network - work.andrey.igm@yandex.ru
+2023-06-29 21:27:01,826 [main] INFO  Application - run telegram handler...
+2023-06-29 21:27:02,086 [Thread-3] INFO  handlers.Network -   
+server configured successfully
+   BUF_SIZE:15024
+   address:0.0.0.0/0.0.0.0:2222
+   summary info:sun.nio.ch.ServerSocketChannelImpl[/[0:0:0:0:0:0:0:0]:2222]
+2023-06-29 21:27:28,834 [Thread-3] INFO  handlers.Network - LocalPortal
+2023-06-29 21:27:28,836 [Thread-3] INFO  handlers.Network - Разные картинки в большом количестве
+![изображение](/attachments/c12a001c-1e67-4a1d-8e13-4ced89f2975f)
+Кот вырезан ножницами
+2023-06-29 21:27:28,838 [Thread-3] INFO  handlers.Network - work.andrey.igm@yandex.ru
+2023-06-29 21:27:32,664 [Thread-3] INFO  handlers.Network - Send close answer...

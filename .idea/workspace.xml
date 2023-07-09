@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="IGM_GIT2_bot:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 01 - открытие задачи.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 02 - коммент.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 03 - коммент картинка с яндекс диска.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 04 - коммент картинка с ножниц.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 05 - коммент 15 картинок.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 06 - коммент к закрытой.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 07 - коммент картинка как вложение.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 08 - закрытие без комментария.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 09 - закрытие с комментарием.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application - 10 - переоткрытие без комментария.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/application.log.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/bug - application - 11 - переоткрытие с комментарием.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/bug - application - 12 - коммент 4 картинки.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/bug - application - 13 - много картинок в комментарии.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/ExchangeRate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/FileHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/Network.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/PictureGit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/Repositories.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/TgCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/TgCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Pictures/Killua.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/configAcces.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/NetworkTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/Description.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/Killua.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_03.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_04.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_05.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_07.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_08.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_09.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_11.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_12.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_13.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_99.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/tmp.jpg" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Rgz7EQ60PnBqK9pap3MNUqVEgM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/PortablePlatform/Documents/Documents/PR/Java/IGM_GIT2_bot/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\PortablePlatform\Documents\Documents\PR\Java\IGM_GIT2_bot\src\main\resources" />
+      <recent name="C:\PortablePlatform\Documents\Documents\PR\Java\IGM_GIT2_bot\src\main\resources\Pictures" />
+      <recent name="C:\PortablePlatform\Documents\Documents\PR\Java\IGM_GIT2_bot\src\main\resources\META-INF" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Application" />
+      <module name="IGM_GIT2_bot" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IGM_GIT2_bot" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.testValidDataReaction_01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IGM_GIT2_bot" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="testValidDataReaction_01" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.testValidDataReaction_10" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IGM_GIT2_bot" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="testValidDataReaction_10" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IGM_GIT2_bot.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/IGM_GIT2_bot_jar/IGM_GIT2_bot.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+        <item itemvalue="JAR Application.IGM_GIT2_bot.jar" />
+        <item itemvalue="JUnit.NetworkTest" />
+        <item itemvalue="JUnit.NetworkTest.testValidDataReaction_01" />
+        <item itemvalue="JUnit.NetworkTest.testValidDataReaction_10" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="" />
+      <created>1687686351783</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687686351783</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IGM_GIT2_bot_iml$Application.ic" NAME="Application Coverage Results" MODIFIED="1687888555863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

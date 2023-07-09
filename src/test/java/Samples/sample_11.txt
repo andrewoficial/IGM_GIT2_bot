@@ -1,0 +1,67 @@
+X-Gogs-Delivery: b1e51f3e-71a7-4d3c-bcd4-afd9f72cdb60
+X-Gogs-Event: issues
+X-Gogs-Signature: 
+Accept-Encoding: gzip
+
+{
+  "secret": "",
+  "action": "reopened",
+  "number": 72,
+  "issue": {
+    "id": 603,
+    "url": "http://192.168.1.162:3000/api/v1/repos/Andrew/LocalPortal/issues/72",
+    "html_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72",
+    "number": 72,
+    "user": {
+      "id": 1,
+      "login": "Andrew",
+      "full_name": "Канцер Андрей Андреевич",
+      "email": "work.andrey.igm@yandex.ru",
+      "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+      "language": "ru-RU",
+      "is_admin": true,
+      "last_login": "2023-06-28T11:35:01+03:00",
+      "created": "2020-02-10T20:21:23+03:00",
+      "username": "Andrew"
+    },
+    "original_author": "",
+    "original_author_id": 0,
+    "title": "Открытие новой задачи",
+    "body": "Комментарий к открытию",
+    "labels": [
+      {
+        "id": 15,
+        "name": "bug",
+        "color"
+2023-06-28 15:34:24,965 [Thread-3] INFO  handlers.Network - clean done
+2023-06-28 15:34:24,966 [Thread-3] INFO  handlers.Network - {
+  "secret": "",
+  "action": "reopened",
+  "number": 72,
+  "issue": {
+    "id": 603,
+    "url": "http://192.168.1.162:3000/api/v1/repos/Andrew/LocalPortal/issues/72",
+    "html_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72",
+    "number": 72,
+    "user": {
+      "id": 1,
+      "login": "Andrew",
+      "full_name": "Канцер Андрей Андреевич",
+      "email": "work.andrey.igm@yandex.ru",
+      "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+      "language": "ru-RU",
+      "is_admin": true,
+      "last_login": "2023-06-28T11:35:01+03:00",
+      "created": "2020-02-10T20:21:23+03:00",
+      "username": "Andrew"
+    },
+    "original_author": "",
+    "original_author_id": 0,
+    "title": "Открытие новой задачи",
+    "body": "Комментарий к открытию",
+    "labels": [
+      {
+        "id": 15,
+        "name": "bug",
+        "color"
+2023-06-28 15:34:24,9

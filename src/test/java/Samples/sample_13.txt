@@ -1,0 +1,75 @@
+X-Gogs-Delivery: 8b7a4579-5a41-4bca-af19-9c7714279776
+X-Gogs-Event: issue_comment
+X-Gogs-Signature: 
+Accept-Encoding: gzip
+
+{
+  "secret": "",
+  "action": "created",
+  "issue": {
+    "id": 603,
+    "url": "http://192.168.1.162:3000/api/v1/repos/Andrew/LocalPortal/issues/72",
+    "html_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72",
+    "number": 72,
+    "user": {
+      "id": 1,
+      "login": "Andrew",
+      "full_name": "Канцер Андрей Андреевич",
+      "email": "work.andrey.igm@yandex.ru",
+      "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+      "language": "ru-RU",
+      "is_admin": true,
+      "last_login": "2023-06-28T11:35:01+03:00",
+      "created": "2020-02-10T20:21:23+03:00",
+      "username": "Andrew"
+    },
+    "original_author": "",
+    "original_author_id": 0,
+    "title": "Открытие новой задачи",
+    "body": "Комментарий к открытию",
+    "labels": [
+      {
+        "id": 15,
+        "name": "bug",
+        "color": "ee0701",
+        "description": "Something is not working",
+        "url": ""
+      }
+    ],
+    "milestone": null,
+    "assignee": null,
+    "assignees": null,
+    "state": "open",
+    "comments": 11,
+    "created_at": "2023-06-28T11:39:51+03:00",
+    "updated_at": "2023-06-28T12:46:42+03:00",
+    "closed_at": null,
+    "due_date": null,
+    "pull_request": null,
+    "repository": {
+      "id": 7,
+      "name": "LocalPortal",
+      "owner": "Andrew",
+      "full_name": "Andrew/LocalPortal"
+    }
+  },
+  "comment": {
+    "id": 3474,
+    "html_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72#issuecomment-3474",
+    "pull_request_url": "",
+    "issue_url": "http://192.168.1.162:3000/Andrew/LocalPortal/issues/72",
+    "user": {
+      "id": 1,
+      "login": "Andrew",
+      "full_name": "Канцер Андрей Андреевич",
+      "email": "work.andrey.igm@yandex.ru",
+      "avatar_url": "http://192.168.1.162:3000/user/avatar/Andrew/-1",
+      "language": "ru-RU",
+      "is_admin": true,
+      "last_login": "2023-06-28T11:35:01+03:00",
+      "created": "2020-02-10T20:21:23+03:00",
+      "username": "Andrew"
+    },
+    "original_author": "",
+    "original_author_id": 0,
+    "body": "Фото 1\r\n![изображение](/attachments/ff9d317d-ac3d-4e4d-bdf3-9d1f1c11a667)\r\nТекст\r\n\r\nФото 2\r\n![из                                                                                                                                                                                                                                                                                                       
