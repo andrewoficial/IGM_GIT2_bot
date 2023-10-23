@@ -34,7 +34,7 @@ public class Propertie {
 
                 inputStream = inputStream2;
             } else {
-                System.out.println("Не удалось найти ресурс configAcces.properties");
+                System.out.println("Resource configAcces.properties not found");
                 inputStream = new FileInputStream("src/main/resources/configAcces.properties");
             }
 

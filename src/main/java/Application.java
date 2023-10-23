@@ -57,12 +57,12 @@ public class Application {
         Scanner sc = new Scanner(System.in);
         String input = "";
         while (true) {
-            System.out.println("Введите команду:");
+            System.out.println("Enter command:");
             input = sc.nextLine();
             if (input == null || input.length() < 2) {
-                System.out.println("Неверный ввод");
+                System.out.println("Wrong input");
             } else if ("/exit".equalsIgnoreCase(input)) {
-                System.out.println("Завершение приложения");
+                System.out.println("Quit application");
                 sc.close();
                 logger2.info("quit application");
                 System.exit(0);

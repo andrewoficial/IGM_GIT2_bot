@@ -152,7 +152,7 @@ public class Network implements Runnable{
                 init();
                 initialized = true;
             } catch (IOException e) {
-                System.out.println("ошибка инициализации");
+                System.out.println("Initialization error (probably cant open port)");
                 initialized = false;
             }
             while (initialized) {
@@ -187,8 +187,8 @@ public class Network implements Runnable{
         //logger2.info(fromChannel);
         fromChannel = fromChannel.trim();
         if(fromChannel.split("\\{",2).length < 2){
-            logger2.error("В строке не найден символ {");
-            System.out.println("В строке не найден символ {");
+            logger2.error("Symbol  {  not found");
+            System.out.println("Symbol  {  not found");
             return null;
         }
         fromChannel = fromChannel.split("\\{",2)[1];
@@ -205,9 +205,9 @@ public class Network implements Runnable{
             }
         }
         if(jsonObject == null) {
-            logger2.error("Не удалось прочесть JSON");
+            logger2.error("Can`t read JSON");
             logger2.warn(fromChannel);
-            System.out.println("Не удалось прочесть JSON");
+            System.out.println("Can`t read JSON");
             return null;
         }
 
@@ -215,8 +215,8 @@ public class Network implements Runnable{
         try{
             action = jsonObject.getString("action");
         } catch (JSONException e) {
-            logger2.warn("Ошибка при поиске параметра 'действие'");
-            System.out.println("Ошибка при поиске параметра 'действие'");
+            logger2.warn("Parameter 'action' not found (wrong JSON message?)");
+            System.out.println("Parameter 'action' not found (wrong JSON message?)");
             return null;
         }
 

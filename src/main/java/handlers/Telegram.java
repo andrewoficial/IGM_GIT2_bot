@@ -35,8 +35,8 @@ public class Telegram extends TelegramLongPollingBot {
 
     public Telegram(){
         if(!dw.checkConnection()){
-            System.out.println("Ошибка проверки соединения для получения картинок");
-            throw new ExceptionInInitializerError("Ошибка проверки соединения для получения картинок");
+            System.out.println("Error connection for image download");
+            throw new ExceptionInInitializerError("Error connection for image download");
         }
     }
 
@@ -86,7 +86,7 @@ public class Telegram extends TelegramLongPollingBot {
                     try {
                         sendPhoto("ttt", chatId, null);
                     } catch (IOException | URISyntaxException e) {
-                        sendText("При отправке изображения произошла ошибка "+ e.getMessage(), chatId);
+                        sendText("Error when image send "+ e.getMessage(), chatId);
                         //throw new RuntimeException(e);
                     }
                     break;
@@ -96,14 +96,14 @@ public class Telegram extends TelegramLongPollingBot {
                         sendTestAlbum(chatId, "Test album");
                     } catch (TelegramApiException e) {
                         System.out.println(e.getMessage());
-                        sendText("При отправке альбома произошла ошибка "+ e.getMessage(), chatId);
+                        sendText("Error when album send "+ e.getMessage(), chatId);
                         //throw new RuntimeException(e);
                     } catch (IOException e){
                         System.out.println(e.getMessage());
-                        sendText("При отправке альбома произошла ошибка "+ e.getMessage(), chatId);
+                        sendText("Error when album send "+ e.getMessage(), chatId);
                     } catch (Exception e){
                         System.out.println(e.getMessage());
-                        sendText("При отправке альбома произошла ошибка "+ e.getMessage(), chatId);
+                        sendText("Error when album send "+ e.getMessage(), chatId);
                     }
                     break;
 
@@ -174,7 +174,7 @@ public class Telegram extends TelegramLongPollingBot {
             for (int i = count; i < limitAlbumPart; i++) {
                 InputStream stream = dw.getImageStream(path[i]);
                 if(stream == null){
-                    text += "\n [Ошибка получения файла "+path[i]+"]";
+                    text += "\n [File not received "+path[i]+"]";
                     continue;
                 }
                 files.add(fh.createTempFile(stream));
