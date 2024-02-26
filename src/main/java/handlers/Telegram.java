@@ -162,7 +162,7 @@ public class Telegram extends TelegramLongPollingBot {
 
     public void sendAlbum(String text, String chatId, String[] path, String marker) throws IOException, TelegramApiException {
         if(path.length > 10){
-            sendText(text + " [Java-мост разделил сообщение из-за большого количества картинок]", chatId);
+            sendText(text + " [Java-мост split the post due to too many pictures]", chatId);
             text = marker;
         }
 
@@ -188,7 +188,7 @@ public class Telegram extends TelegramLongPollingBot {
                 inputMediaList.add(inpMedia);
             }
             if(files.size() > 2 && count > path.length - 1){
-                sendText(text + "\n [Произошла ошибка, изображения не отправлены.]", chatId);
+                sendText(text + "\n [An error occurred and the images were not sent.]", chatId);
                 for (File file : files) {
                     file.delete();
                 }

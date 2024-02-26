@@ -42,18 +42,18 @@ public class ExchangeRate {
             double roundRate = Math.ceil(rate * scale) / scale;
             text += "Received RSS data RU ("+date+"):\n RUB-TG(100):" + result + " \n TG-RUB:" + roundRate;
         } catch (IOException e) {
-            String error = "Возникла ошибка при парсинге ответа www.cbr.ru/rss/RssCurrency (IOException) "+ e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response www.cbr.ru/rss/RssCurrency (IOException) "+ e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";
         } catch (ArrayIndexOutOfBoundsException e) {
-            String error = "Возникла ошибка при парсинге ответа www.cbr.ru/rss/RssCurrency (ArrayIndexOutOfBoundsException) "+ e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response www.cbr.ru/rss/RssCurrency (ArrayIndexOutOfBoundsException) "+ e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             String rssData = null;
             try {
                 rssData = fetchRSS("http://www.cbr.ru/rss/RssCurrency");
             } catch (IOException ex) {
-                error = "Возникла ошибка при запросе  к www.cbr.ru/rss/RssCurrency (Exception) "+ e.getMessage() + "\n" +
+                error = "An error occurred when requesting www.cbr.ru/rss/RssCurrency (Exception) "+ e.getMessage() + "\n" +
                         Arrays.toString(e.getStackTrace());
                 System.out.println(error);
                 text += error + "\n";
@@ -63,7 +63,7 @@ public class ExchangeRate {
             System.out.println(error);
             text += error + "\n";
         } catch (Exception e) {
-            String error = "Возникла ошибка при парсинге ответа www.cbr.ru/rss/RssCurrency (Exception) "+ e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response  www.cbr.ru/rss/RssCurrency (Exception) "+ e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";
@@ -86,17 +86,17 @@ public class ExchangeRate {
             text += "Received XML data KZ ("+date+"):\n RUB-TG(100):" + roundRate + " \n TG-RUB:" + result;
 
         } catch (IOException e) {
-            String error = "Возникла ошибка при парсинге ответа https://nationalbank.kz/rss/rates_all.xml (IOException) " + e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response  https://nationalbank.kz/rss/rates_all.xml (IOException) " + e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";
         } catch (ArrayIndexOutOfBoundsException e) {
-            String error = "Возникла ошибка при парсинге ответа https://nationalbank.kz/rss/rates_all.xml (ArrayIndexOutOfBoundsException) " + e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response  https://nationalbank.kz/rss/rates_all.xml (ArrayIndexOutOfBoundsException) " + e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";
         }catch (Exception e){
-            String error = "Возникла ошибка при парсинге ответа https://nationalbank.kz/rss/rates_all.xml (Exception) " + e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response  https://nationalbank.kz/rss/rates_all.xml (Exception) " + e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";
@@ -133,17 +133,17 @@ public class ExchangeRate {
             sRate = Math.ceil(sRate * sScale) / sScale;
             text += "Parsed  data MIG.KZ (buy/sell):\n RUB-TG(100):" + bRate + "/" + sRate +" \n TG-RUB:" + buy+"/"+ sell;
         } catch (IOException e) {
-            String error = "Возникла ошибка при парсинге ответа https://mig.kz/api/v1/gadget/html (IOException) " + e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response  https://mig.kz/api/v1/gadget/html (IOException) " + e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";
         } catch (ArrayIndexOutOfBoundsException e) {
-            String error = "Возникла ошибка при парсинге ответа https://mig.kz/api/v1/gadget/html (ArrayIndexOutOfBoundsException) " + e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response  https://mig.kz/api/v1/gadget/html (ArrayIndexOutOfBoundsException) " + e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";
         }catch (Exception e) {
-            String error = "Возникла ошибка при парсинге ответа https://mig.kz/api/v1/gadget/html (Exception) " + e.getMessage() + "\n" +
+            String error = "An error occurred while parsing the response  https://mig.kz/api/v1/gadget/html (Exception) " + e.getMessage() + "\n" +
                     Arrays.toString(e.getStackTrace());
             System.out.println(error);
             text += error + "\n";

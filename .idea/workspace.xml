@@ -9,62 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 01 - открытие задачи.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 02 - коммент.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 03 - коммент картинка с яндекс диска.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 04 - коммент картинка с ножниц.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 05 - коммент 15 картинок.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 06 - коммент к закрытой.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 07 - коммент картинка как вложение.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 08 - закрытие без комментария.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 09 - закрытие с комментарием.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application - 10 - переоткрытие без комментария.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/application.log.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/bug - application - 11 - переоткрытие с комментарием.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/bug - application - 12 - коммент 4 картинки.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/bug - application - 13 - много картинок в комментарии.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/ExchangeRate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/FileHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/Network.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/PictureGit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/Repositories.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/TgCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/resources/TgCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Pictures/Killua.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/configAcces.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/NetworkTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/Description.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/Killua.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_04.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_06.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_07.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_08.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_09.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_11.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_12.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_13.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/sample_99.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Samples/tmp.jpg" afterDir="false" />
+    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="Some translate">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +31,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2Rgz7EQ60PnBqK9pap3MNUqVEgM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -100,11 +49,18 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/PortablePlatform/Documents/Documents/PR/Java/IGM_GIT2_bot/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -173,8 +129,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1687686351783</updated>
+      <workItem from="1698093717753" duration="970000" />
+      <workItem from="1698966155722" duration="66000" />
+      <workItem from="1706343052340" duration="464000" />
     </task>
+    <task id="LOCAL-00001" summary="Some translate">
+      <option name="closed" value="true" />
+      <created>1698094531576</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698094531576</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Some translate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some translate" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IGM_GIT2_bot_iml$Application.ic" NAME="Application Coverage Results" MODIFIED="1687888555863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

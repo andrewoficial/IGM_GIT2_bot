@@ -38,12 +38,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("Комментарий к открытию", result.getBody());
@@ -65,12 +60,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("Добавление комментариев 4", result.getBody());
@@ -92,12 +82,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("Комент с картинкой из яндекс-диска ", result.getBody());
@@ -120,12 +105,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("Добавление комментаия с няшным киллуа но в тексте JPG (ножницы)  Хоба    Хоба 2  ", result.getBody());
@@ -149,12 +129,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("1   2   3   4   5   6   7   8   9    10   11   12   13   14   15  Конец сообщения", result.getBody());
@@ -177,12 +152,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("Комментарий у открытию закрытой задачи", result.getBody());
@@ -204,12 +174,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("Добавление комментаия с няшным киллуа", result.getBody());
@@ -231,12 +196,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("", result.getBody());
@@ -258,12 +218,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("Комментарий при закрытии задачи", result.getBody());
@@ -285,12 +240,7 @@ public class NetworkTest {
             System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
         }
         Event result = null;
-        try {
-            result = network.dataReaction(content);
-        } catch (IOException e) {
-            System.out.println(content);
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(content);
         Assertions.assertNotNull(result); // убедиться, что результат не равен null
         Assertions.assertEquals("LocalPortal", result.getRepo());
         Assertions.assertEquals("", result.getBody());
@@ -306,11 +256,7 @@ public class NetworkTest {
 
         String input = "some data but not json";
         Event result = new Event("", "", "", "", "", "",null);
-        try {
-            result = network.dataReaction(input);
-        } catch (IOException e) {
-            //throw new RuntimeException(e);
-        }
+        result = network.dataReaction(input);
         Assertions.assertNull(result);
     }
 

@@ -91,7 +91,7 @@ public class Event {
         //Проверки
         if(this.body.length()>300){
             this.body = this.body.substring(0, Math.min(250, body.length()));
-            this.body += "[текст был сокращен Java-мостом]";
+            this.body += "[the text has been shortened by the Java bridge]";
         }
 
         for (Repositories value : Repositories.values()) {
@@ -134,7 +134,8 @@ public class Event {
 
         //Если вложений нету
         if(this.attachments == null || this.attachments.length < 1){
-            System.out.println("Отправка простого сообщения");
+            System.out.println("Sending a simple message");
+
             try {
                 tg.sendText(message, repository.getTgId());
             } catch (TelegramApiException e) {
@@ -145,19 +146,19 @@ public class Event {
 
         //Если одна картинка
         if(this.attachments.length == 1){
-            System.out.println("Отправка одной картинки");
+            System.out.println("Sending one picture");
             System.out.println(attachments[0]);
             try {
                 tg.sendPhoto(message, repository.getTgId(), attachments[0]);
             } catch (TelegramApiException e) {
-                System.out.println("    Проблема с отправкой одной картинки" + e.getMessage());
+                System.out.println("    Problem with sending one picture" + e.getMessage());
                 //throw new RuntimeException(e);
             } catch (IOException | URISyntaxException e) {
-                System.out.println("    Проблема с файлом"+e.getMessage());
+                System.out.println("    File problem"+e.getMessage());
                 try {
-                    tg.sendText(message + " \n [IOException в Java-мосте. Контент не был передан. "+e.getMessage()+" ]", repository.getTgId());
+                    tg.sendText(message + " \n [IOException in Java Bridge. Content was not transferred. "+e.getMessage()+" ]", repository.getTgId());
                 } catch (TelegramApiException e1) {
-                    System.out.println("        Проблема отправкой уведомления"+ e1.getMessage());
+                    System.out.println("        Problem sending notifications"+ e1.getMessage());
                     //throw new RuntimeException(e);
                 }
                 //throw new RuntimeException(e);
@@ -166,7 +167,7 @@ public class Event {
         }
 
 
-        System.out.println("Отправка альбома " + attachments.length);
+        System.out.println("Sending an album " + attachments.length);
         String str = "";
         for (String attachment : attachments) {
             str += attachment + ", ";
@@ -175,26 +176,26 @@ public class Event {
         try {
             tg.sendAlbum(message, repository.getTgId(), attachments, marker);
         } catch (IOException e) {
-            System.out.println("    Проблема с файлом");
+            System.out.println("    File problem");
             try {
-                tg.sendText(message + " \n [IOException в Java-мосте. Контент не был передан. \n" +
-                        "Список ссылок на картинки: "+str + "\n" +
-                        "Текст ошибки:"+e.getMessage()+" ]", repository.getTgId());
+                tg.sendText(message + " \n [IOException in Java Bridge. Content was not transferred \n" +
+                        "List of links to pictures: "+str + "\n" +
+                        "Error text:"+e.getMessage()+" ]", repository.getTgId());
             } catch (TelegramApiException e1) {
-                System.out.println("        Проблема отправкой сообщения об ошибке");
+                System.out.println("        Problem sending error message");
                 //throw new RuntimeException(e);
             }
             //throw new RuntimeException(e);
         } catch (TelegramApiException e) {
-            System.out.println("    Проблема с телеграммом");
+            System.out.println("   Problem with telegram");
             try {
 
-                tg.sendText(message + " \n [TelegramApiException в Java-мосте. Контент не был передан. \n" +
-                        "Список ссылок на картинки: "+str + "\n" +
-                        "Текст ошибки:"+e.getMessage()+" ]", repository.getTgId());
+                tg.sendText(message + " \n [TelegramApiException in Java Bridge. Content was not transferred. \n" +
+                        "List of links to pictures:"+str + "\n" +
+                        "Error text:"+e.getMessage()+" ]", repository.getTgId());
                 //System.out.println(e.getStackTrace());
             } catch (TelegramApiException e1) {
-                System.out.println("        Проблема отправкой сообщения об ошибке");
+                System.out.println("        Problem sending error message");
                 //throw new RuntimeException(e);
             }
 

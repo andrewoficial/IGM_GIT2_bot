@@ -199,8 +199,8 @@ public class Network implements Runnable{
             try {
                 jsonObject = new JSONObject(fromChannel);
             } catch (JSONException e) {
-                logger2.error("Возникла ошибка при попытке преобразовать строку от клиента в JSON-объект");
-                System.out.println("Возникла ошибка при попытке преобразовать строку от клиента в JSON-объект");
+                logger2.error("An error occurred while trying to convert a string from the client to a JSON object");
+                System.out.println("An error occurred while trying to convert a string from the client to a JSON object");
                 //throw new RuntimeException(e);
             }
         }
@@ -229,15 +229,15 @@ public class Network implements Runnable{
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");//Different place
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра имя репозитория. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя репозитория. when " + action);
+                System.out.println("There was an error searching for the repository name parameter.when " + action);
+                logger2.warn("There was an error searching for the repository name parameter.when " + action);
                 return null;
             }
             try{
                 number = (jsonObject.getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра номер задачи. when " + action);
-                logger2.warn("Ошибка при поиске параметра номер задачи. when " + action);
+                System.out.println("There was an error searching for the task number parameter. when " + action);
+                logger2.warn("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
             try{
@@ -252,32 +252,32 @@ public class Network implements Runnable{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("Ошибка при поиске параметра заголовок. when " + action);
-                logger2.info("Ошибка при поиске параметра заголовок. when " + action);
+                System.out.println("There was an error searching for the header parameter. when " + action);
+                logger2.info("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("Ошибка при поиске параметра имя отправителя. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя отправителя. when " + action);
+                System.out.println("There was an error searching for the sender name parameter. when " + action);
+                logger2.warn("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else if("created".equalsIgnoreCase(action)){
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра имя репозитория. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя репозитория. when " + action);
+                System.out.println("Error when searching for the repository name parameter. when " + action);
+                logger2.warn("Error when searching for the repository name parameter. when " + action);
                 return null;
             }
 
             try{
                 number = (jsonObject.getJSONObject("issue").getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра номер задачи. when " + action);
-                logger2.warn("Ошибка при поиске параметра номер задачи. when " + action);
+                System.out.println("There was an error searching for the task number parameter. when " + action);
+                logger2.warn("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
 
@@ -285,40 +285,40 @@ public class Network implements Runnable{
                 body = jsonObject.getJSONObject("comment").getString("body");
             } catch (JSONException e) {
                 body = "";
-                System.out.println("Ошибка при поиске параметра текста комментария. when " + action);
-                logger2.info("Ошибка при поиске параметра текста комментария. when " + action);
+                System.out.println("There was an error searching for the comment text parameter. when " + action);
+                logger2.info("There was an error searching for the comment text parameter. when " + action);
             }
 
             try{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("Ошибка при поиске параметра заголовок. when " + action);
-                logger2.info("Ошибка при поиске параметра заголовок. when " + action);
+                System.out.println("There was an error searching for the header parameter. when " + action);
+                logger2.info("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("Ошибка при поиске параметра имя отправителя. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя отправителя. when " + action);
+                System.out.println("There was an error searching for the sender name parameter. when " + action);
+                logger2.warn("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else if("closed".equalsIgnoreCase(action)){
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра имя репозитория. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя репозитория. when " + action);
+                System.out.println("Error when searching for the repository name parameter. when " + action);
+                logger2.warn("Error when searching for the repository name parameter. when " + action);
                 return null;
             }
 
             try{
                 number = (jsonObject.getJSONObject("issue").getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра номер задачи. when " + action);
-                logger2.warn("Ошибка при поиске параметра номер задачи. when " + action);
+                System.out.println("There was an error searching for the task number parameter. when " + action);
+                logger2.warn("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
 
@@ -326,40 +326,40 @@ public class Network implements Runnable{
                 body = jsonObject.getJSONObject("comment").getString("body");
             } catch (JSONException e) {
                 body = "";
-                System.out.println("Ошибка при поиске параметра текста комментария. when " + action);
-                logger2.info("Ошибка при поиске параметра текста комментария. when " + action);
+                System.out.println("There was an error searching for the comment text parameter. when " + action);
+                logger2.info("There was an error searching for the comment text parameter. when " + action);
             }
 
             try{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("Ошибка при поиске параметра заголовок. when " + action);
-                logger2.info("Ошибка при поиске параметра заголовок. when " + action);
+                System.out.println("There was an error searching for the header parameter. when " + action);
+                logger2.info("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("Ошибка при поиске параметра имя отправителя. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя отправителя. when " + action);
+                System.out.println("There was an error searching for the sender name parameter. when " + action);
+                logger2.warn("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else if("reopened".equalsIgnoreCase(action)){
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра имя репозитория. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя репозитория. when " + action);
+                System.out.println("Error when searching for the repository name parameter. when " + action);
+                logger2.warn("Error when searching for the repository name parameter. when " + action);
                 return null;
             }
 
             try{
                 number = (jsonObject.getJSONObject("issue").getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("Ошибка при поиске параметра номер задачи. when " + action);
-                logger2.warn("Ошибка при поиске параметра номер задачи. when " + action);
+                System.out.println("There was an error searching for the task number parameter. when " + action);
+                logger2.warn("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
 
@@ -367,29 +367,29 @@ public class Network implements Runnable{
                 body = jsonObject.getJSONObject("comment").getString("body");
             } catch (JSONException e) {
                 body = "";
-                System.out.println("Ошибка при поиске параметра текста комментария. when " + action);
-                logger2.info("Ошибка при поиске параметра текста комментария. when " + action);
+                System.out.println("There was an error searching for the comment text parameter. when " + action);
+                logger2.info("There was an error searching for the comment text parameter. when " + action);
             }
 
             try{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("Ошибка при поиске параметра заголовок. when " + action);
-                logger2.info("Ошибка при поиске параметра заголовок. when " + action);
+                System.out.println("There was an error searching for the header parameter. when " + action);
+                logger2.info("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("Ошибка при поиске параметра имя отправителя. when " + action);
-                logger2.warn("Ошибка при поиске параметра имя отправителя. when " + action);
+                System.out.println("There was an error searching for the sender name parameter. when " + action);
+                logger2.warn("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else{
-            logger2.error("Ошибка определения типа события");
-            System.out.println("Ошибка определения типа события when ");
+            logger2.error("Error determining when event type");
+            System.out.println("Error determining when event type");
             return null;
         }
 
