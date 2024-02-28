@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import resources.Event;
+import services.MyLogger;
 
 /**
  * The Network class is used to interact with files
@@ -34,7 +35,7 @@ import resources.Event;
  *
  */
 public class Network implements Runnable{
-    private static final Logger logger2 = LogManager.getLogger(Network.class);
+    //private static final Logger logger2 = LogManager.getLogger(Network.class);
     private InetSocketAddress address;
 
     /**
@@ -52,7 +53,10 @@ public class Network implements Runnable{
      *
      */
     public void run() {
-        new NioThread().start();
+        NioThread nioThread = new NioThread();
+        nioThread.setName("NIO-Thread");
+        nioThread.setPriority(10);
+        nioThread.start();
     }
 
 
@@ -71,7 +75,7 @@ public class Network implements Runnable{
         private ServerSocketChannel serverChannel;
         private HashSet<SocketChannel> channels = new HashSet<>();
 
-        private static final int BUF_SIZE = 15024;
+        private static final int BUF_SIZE = 180000; //150024 min
         private volatile ByteBuffer byteBuffer;
         private Selector selector;
 
@@ -88,10 +92,10 @@ public class Network implements Runnable{
             serverChannel.bind(address);
             serverChannel.configureBlocking(false);
             serverChannel.register(selector, SelectionKey.OP_ACCEPT);
-            logger2.info("  \nserver configured successfully"+"\n"+
-                    "   BUF_SIZE:" + BUF_SIZE + "\n"+
-                    "   address:" + address + "\n"+
-                    "   summary info:" + serverChannel);
+            MyLogger.myInfo("server configured successfully");
+            MyLogger.myInfo("   BUF_SIZE:" + BUF_SIZE);
+            MyLogger.myInfo("   address:" + address);
+            MyLogger.myInfo("   summary info:" + serverChannel);
         }
 
         /**
@@ -105,6 +109,7 @@ public class Network implements Runnable{
             selector.select();
             Set<SelectionKey> keys = selector.selectedKeys();
             Iterator<SelectionKey> keyIterator = keys.iterator();
+            int errCount = 0;
             while (keyIterator.hasNext()) {
                 SelectionKey selectionKey = keyIterator.next();
                 if (selectionKey.isAcceptable()) {
@@ -112,21 +117,45 @@ public class Network implements Runnable{
                     channels.add(channel);
                     channel.configureBlocking(false);
                     channel.register(selector, SelectionKey.OP_READ);
-                    System.out.println("Client connected ");
+                    MyLogger.myInfo("Client connected ");
                 } else if (selectionKey.isReadable()) { // true, если событие OP_READ - в канале есть данные для чтения
                     SocketChannel currentChannel = (SocketChannel)selectionKey.channel();
                     int read = currentChannel.read(byteBuffer);
-                    if (read == -1) continue;
+                    JSONObject responseJson = new JSONObject();
+                    if (read == -1){
+                        errCount++;
+
+                        if(errCount > 150){
+                            responseJson = new JSONObject();
+                            responseJson.put("status", 200);
+                            responseJson.put("message", "Done OK");
+
+                            String response = "HTTP/1.1 200 OK\r\n" +
+                                    "Content-Type: application/json\r\n" +
+                                    "Content-Length: " + responseJson.toString().length() + "\r\n" +
+                                    "Connection: close\r\n\r\n" + responseJson.toString();
+
+                            ByteBuffer buffer = ByteBuffer.wrap(response.getBytes(StandardCharsets.UTF_8));
+                            currentChannel.write(buffer);
+                            MyLogger.myInfo("Send close answer...");
+                            byteBuffer = ByteBuffer.allocate(BUF_SIZE);
+                            currentChannel.finishConnect();
+                            selectionKey.cancel();
+                            serverChannel.accept();
+                            errCount = 0;
+                        }
+                        continue;
+                    }
+                    errCount = 0;
                     String fromChannel = new String(byteBuffer.array(), 0, byteBuffer.limit(), StandardCharsets.UTF_8);
                     byteBuffer.compact(); // Сброс позиции и перемещение оставшихся данных в начало буфера ...
                     Event event = dataReaction(fromChannel);
                     if(event != null)
                         event.sendToTelegram();
 
-                    System.out.println();
-                    JSONObject responseJson = new JSONObject();
+                    responseJson = new JSONObject();
                     responseJson.put("status", 200);
-                    responseJson.put("message", "Java answer...");
+                    responseJson.put("message", "Done OK");
 
                     String response = "HTTP/1.1 200 OK\r\n" +
                             "Content-Type: application/json\r\n" +
@@ -135,7 +164,7 @@ public class Network implements Runnable{
 
                     ByteBuffer buffer = ByteBuffer.wrap(response.getBytes(StandardCharsets.UTF_8));
                     currentChannel.write(buffer);
-                    logger2.info("Send close answer...");
+                    MyLogger.myInfo("Send close answer...");
                     byteBuffer = ByteBuffer.allocate(BUF_SIZE);
                     currentChannel.finishConnect();
                     selectionKey.cancel();
@@ -152,16 +181,15 @@ public class Network implements Runnable{
                 init();
                 initialized = true;
             } catch (IOException e) {
-                System.out.println("Initialization error (probably cant open port)");
-                initialized = false;
+                MyLogger.myError("Initialization error (probably cant open port)");
             }
             while (initialized) {
                 try {
                     chooseEventReaction();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
+                } catch (IOException | ClassNotFoundException e) {
+                    //throw new RuntimeException(e);
+                    MyLogger.myError(e.toString());
+
                 }
             }
         }
@@ -183,12 +211,11 @@ public class Network implements Runnable{
         if(fromChannel == null){
             return null;
         }
-        //logger2.info("run dataReaction");
-        //logger2.info(fromChannel);
+        MyLogger.myInfo("run dataReaction");
+        MyLogger.myInfo("\n ==Received Data== \n"+ fromChannel + "\n ==Received Data== \n");
         fromChannel = fromChannel.trim();
         if(fromChannel.split("\\{",2).length < 2){
-            logger2.error("Symbol  {  not found");
-            System.out.println("Symbol  {  not found");
+            MyLogger.myError("Symbol  {  not found");
             return null;
         }
         fromChannel = fromChannel.split("\\{",2)[1];
@@ -199,15 +226,13 @@ public class Network implements Runnable{
             try {
                 jsonObject = new JSONObject(fromChannel);
             } catch (JSONException e) {
-                logger2.error("An error occurred while trying to convert a string from the client to a JSON object");
-                System.out.println("An error occurred while trying to convert a string from the client to a JSON object");
+                MyLogger.myError("An error occurred while trying to convert a string from the client to a JSON object");
                 //throw new RuntimeException(e);
             }
         }
         if(jsonObject == null) {
-            logger2.error("Can`t read JSON");
-            logger2.warn(fromChannel);
-            System.out.println("Can`t read JSON");
+            MyLogger.myError("Can`t read JSON");
+            MyLogger.myError(fromChannel);
             return null;
         }
 
@@ -215,8 +240,7 @@ public class Network implements Runnable{
         try{
             action = jsonObject.getString("action");
         } catch (JSONException e) {
-            logger2.warn("Parameter 'action' not found (wrong JSON message?)");
-            System.out.println("Parameter 'action' not found (wrong JSON message?)");
+            MyLogger.myError("Parameter 'action' not found (wrong JSON message?)");
             return null;
         }
 
@@ -229,55 +253,48 @@ public class Network implements Runnable{
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");//Different place
             } catch (JSONException e) {
-                System.out.println("There was an error searching for the repository name parameter.when " + action);
-                logger2.warn("There was an error searching for the repository name parameter.when " + action);
+                MyLogger.myError("There was an error searching for the repository name parameter.when " + action);
                 return null;
             }
             try{
                 number = (jsonObject.getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("There was an error searching for the task number parameter. when " + action);
-                logger2.warn("There was an error searching for the task number parameter. when " + action);
+                MyLogger.myError("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
             try{
                 body = jsonObject.getJSONObject("issue").getString("body");
             } catch (JSONException e) {
                 body = "";
-                System.out.println("Ошибка при поиске параметра текста комментария репозитория. when " + action);
-                logger2.info("Ошибка при поиске параметра текста комментария репозитория. when " + action);
+                MyLogger.myError("Ошибка при поиске параметра текста комментария репозитория. when " + action);
             }
 
             try{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("There was an error searching for the header parameter. when " + action);
-                logger2.info("There was an error searching for the header parameter. when " + action);
+                MyLogger.myError("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("There was an error searching for the sender name parameter. when " + action);
-                logger2.warn("There was an error searching for the sender name parameter. when " + action);
+                MyLogger.myError("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else if("created".equalsIgnoreCase(action)){
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");
             } catch (JSONException e) {
-                System.out.println("Error when searching for the repository name parameter. when " + action);
-                logger2.warn("Error when searching for the repository name parameter. when " + action);
+                MyLogger.myError("Error when searching for the repository name parameter. when " + action);
                 return null;
             }
 
             try{
                 number = (jsonObject.getJSONObject("issue").getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("There was an error searching for the task number parameter. when " + action);
-                logger2.warn("There was an error searching for the task number parameter. when " + action);
+                MyLogger.myError("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
 
@@ -285,40 +302,38 @@ public class Network implements Runnable{
                 body = jsonObject.getJSONObject("comment").getString("body");
             } catch (JSONException e) {
                 body = "";
-                System.out.println("There was an error searching for the comment text parameter. when " + action);
-                logger2.info("There was an error searching for the comment text parameter. when " + action);
+                MyLogger.myError("There was an error searching for the comment text parameter. when " + action);
             }
 
             try{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("There was an error searching for the header parameter. when " + action);
-                logger2.info("There was an error searching for the header parameter. when " + action);
+                MyLogger.myError("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("There was an error searching for the sender name parameter. when " + action);
-                logger2.warn("There was an error searching for the sender name parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else if("closed".equalsIgnoreCase(action)){
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");
             } catch (JSONException e) {
-                System.out.println("Error when searching for the repository name parameter. when " + action);
-                logger2.warn("Error when searching for the repository name parameter. when " + action);
+
+                MyLogger.myError("Error when searching for the repository name parameter. when " + action);
                 return null;
             }
 
             try{
                 number = (jsonObject.getJSONObject("issue").getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("There was an error searching for the task number parameter. when " + action);
-                logger2.warn("There was an error searching for the task number parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
 
@@ -326,40 +341,40 @@ public class Network implements Runnable{
                 body = jsonObject.getJSONObject("comment").getString("body");
             } catch (JSONException e) {
                 body = "";
-                System.out.println("There was an error searching for the comment text parameter. when " + action);
-                logger2.info("There was an error searching for the comment text parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the comment text parameter. when " + action);
             }
 
             try{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("There was an error searching for the header parameter. when " + action);
-                logger2.info("There was an error searching for the header parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("There was an error searching for the sender name parameter. when " + action);
-                logger2.warn("There was an error searching for the sender name parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else if("reopened".equalsIgnoreCase(action)){
             try{
                 repo = jsonObject.getJSONObject("repository").getString("name");
             } catch (JSONException e) {
-                System.out.println("Error when searching for the repository name parameter. when " + action);
-                logger2.warn("Error when searching for the repository name parameter. when " + action);
+
+                MyLogger.myError("Error when searching for the repository name parameter. when " + action);
                 return null;
             }
 
             try{
                 number = (jsonObject.getJSONObject("issue").getInt("number")) + "";
             } catch (JSONException e) {
-                System.out.println("There was an error searching for the task number parameter. when " + action);
-                logger2.warn("There was an error searching for the task number parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the task number parameter. when " + action);
                 return null;
             }
 
@@ -367,36 +382,37 @@ public class Network implements Runnable{
                 body = jsonObject.getJSONObject("comment").getString("body");
             } catch (JSONException e) {
                 body = "";
-                System.out.println("There was an error searching for the comment text parameter. when " + action);
-                logger2.info("There was an error searching for the comment text parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the comment text parameter. when " + action);
             }
 
             try{
                 title = jsonObject.getJSONObject("issue").getString("title");
             } catch (JSONException e) {
                 title = "";
-                System.out.println("There was an error searching for the header parameter. when " + action);
-                logger2.info("There was an error searching for the header parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the header parameter. when " + action);
             }
 
             try{
                 login = jsonObject.getJSONObject("sender").getString("email");
             } catch (JSONException e) {
                 login = "dunno";
-                System.out.println("There was an error searching for the sender name parameter. when " + action);
-                logger2.warn("There was an error searching for the sender name parameter. when " + action);
+
+                MyLogger.myError("There was an error searching for the sender name parameter. when " + action);
             }
         }
         else{
-            logger2.error("Error determining when event type");
-            System.out.println("Error determining when event type");
+            MyLogger.myError("Error determining when event type");
+
             return null;
         }
 
 
-        logger2.info(repo);
-        logger2.info(body);
-        logger2.info(login);
+        MyLogger.myError(repo);
+        MyLogger.myError(body);
+        MyLogger.myError(login);
+
         while(true){
             if(! body.contains("\r\n")){
                 break;
@@ -404,9 +420,31 @@ public class Network implements Runnable{
                 body = body.replace("\r\n", " ");
             }
         }
+        MyLogger.myInfo("Start parse================================================");
+        MyLogger.myInfo(body);
+        ArrayList <String> links= new ArrayList<>();
+        while(body.contains("(/") && body.contains(")")){
+            MyLogger.myInfo(String.valueOf(body.indexOf("(/")));
+            MyLogger.myInfo(String.valueOf(body.indexOf(")")));
+            String targetPart = body.substring(body.indexOf("(/")+1, body.indexOf(")"));
+            MyLogger.myInfo("Str to add: ");
+            MyLogger.myInfo(targetPart);
+            links.add(targetPart);
 
+            body = body.substring(body.indexOf(")"));
+            if(body.length() > 3){
+                body = body.substring(2);
+            }
 
-        String [] attachments = body.split("изображение");
+            MyLogger.myInfo("Last part: ");
+            MyLogger.myInfo(body);
+
+        }
+
+        /*
+        String [] attachments = body.split("attachments");
+        System.out.println("Found attachments" + attachments.length);
+
         ArrayList <String> links = new ArrayList<>();
         if(attachments.length > 0){
             for(int i=0; i<attachments.length; i++){
@@ -419,16 +457,19 @@ public class Network implements Runnable{
             }
         }
         attachments = new String[links.size()];
+        
+        */
         int i = 0;
+        String[] attachments = new String[links.size()];
         for (String link : links) {
             attachments [i++] = "http://192.168.1.162:3000" + link;
         }
 
         for (String link : links) {
-            body = body.replace("![изображение]("+link+")", "");
+            body = body.replace("![image]("+link+")", "");
         }
         Event event = new Event(repo, number, action, login, body, title, attachments);
-        System.out.println(event);
+        MyLogger.myInfo(String.valueOf(event));
         return event;
     }
 }

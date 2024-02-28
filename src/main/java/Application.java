@@ -1,15 +1,18 @@
 import handlers.Network;
 import handlers.Telegram;
 
+import handlers.TerminalPool;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.net.*;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import services.MyLogger;
 
 
 /**
@@ -21,8 +24,10 @@ import org.apache.logging.log4j.Logger;
  * <p>Description: First, an object is created to interact with the telegram API.
  * Then Run in a separate port listener thread. Then receiving commands from the terminal.</p>
  */
+
+
 public class Application {
-    private static final Logger logger2 = LogManager.getLogger(Application.class);
+
 
     /**
      * The main method is the entry point of the application.
@@ -31,42 +36,42 @@ public class Application {
      * @param args The command-line arguments passed to the application.
      */
     public static void main(String[] args) {
+
         TelegramBotsApi telegramBotsApi = null;
         try {
             telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
         } catch (TelegramApiException e) {
-            logger2.error("new TelegramBotsApi" + e.getMessage());
-            logger2.error(e.getStackTrace());
+            MyLogger.myError("new TelegramBotsApi" + e.getMessage());
+            MyLogger.logger2.error(e.getStackTrace());
             throw new RuntimeException(e);
         }
 
         try {
             telegramBotsApi.registerBot(new Telegram());
         } catch (TelegramApiException e) {
-            logger2.error("registerBot" + e.getMessage());
-            logger2.error(e.getStackTrace());
+            MyLogger.myError("registerBot" + e.getMessage());
+            MyLogger.logger2.error(e.getStackTrace());
             throw new RuntimeException(e);
         }
-        logger2.info("run telegram handler...");
+        MyLogger.myError("run telegram handler...");
 
         InetSocketAddress address = new InetSocketAddress(2222);
         Network gitHandler = new Network(address);
         Thread thread1 = new Thread(gitHandler);
+        thread1.setName("Git Listener");
+        thread1.setPriority(5);
         thread1.start();
+        MyLogger.myError("run git listener...");
 
-        Scanner sc = new Scanner(System.in);
-        String input = "";
-        while (true) {
-            System.out.println("Enter command:");
-            input = sc.nextLine();
-            if (input == null || input.length() < 2) {
-                System.out.println("Wrong input");
-            } else if ("/exit".equalsIgnoreCase(input)) {
-                System.out.println("Quit application");
-                sc.close();
-                logger2.info("quit application");
-                System.exit(0);
-            }
-        }
+        TerminalPool terminalPool= new TerminalPool();
+        Thread thread2 = new Thread(terminalPool);
+        thread2.setName("Terminal Listener");
+        thread2.setPriority(Thread.MIN_PRIORITY);
+        thread2.start();
+        MyLogger.myError("run terminal handler...");
+
+
+
+
     }
 }

@@ -9,8 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="Some translate">
+    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="translate more">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/IGM_GIT2_bot_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/TerminalPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/MyLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Network.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/Event.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +141,9 @@
       <workItem from="1698093717753" duration="970000" />
       <workItem from="1698966155722" duration="66000" />
       <workItem from="1706343052340" duration="464000" />
+      <workItem from="1708949654995" duration="6452000" />
+      <workItem from="1708957581406" duration="11336000" />
+      <workItem from="1709121084949" duration="5650000" />
     </task>
     <task id="LOCAL-00001" summary="Some translate">
       <option name="closed" value="true" />
@@ -141,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698094531576</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="translate more">
+      <option name="closed" value="true" />
+      <created>1708950689792</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708950689792</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +169,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Some translate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some translate" />
+    <MESSAGE value="translate more" />
+    <option name="LAST_COMMIT_MESSAGE" value="translate more" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IGM_GIT2_bot_iml$Application.ic" NAME="Application Coverage Results" MODIFIED="1687888555863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -26,10 +26,57 @@ public class Propertie {
 
         Properties properties = new Properties();
         InputStream  inputStream = null;
-
+        System.out.println("Start load configAcces.properties");
+        try{
+            File f = new File("conf"+"configAcces.properties");
+            if(f.exists() && !f.isDirectory()) {
+                // do something
+            }else {
+                new File("conf").mkdirs();
+            }
+        } catch (Exception e) {
+            //throw new RuntimeException(e);
+        }
+        File myObj = null;
         try {
+            myObj = new File("conf/"+"configAcces.properties");
+            if (myObj.createNewFile()) {
+                //System.out.println("File created: " + myObj.getName());
+                System.out.println("File created: " + myObj.getAbsolutePath());
+            } else {
+                System.out.println("File already exists.");
+                System.out.println(myObj.getAbsolutePath());
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+
+        Properties props = new Properties();
+        FileInputStream in = null;
+        try {
+            in = new FileInputStream(myObj.getAbsolutePath());
+        } catch (FileNotFoundException e) {
+            //throw new RuntimeException(e);
+        }
+        try {
+                props.load(in);
+            } catch (IOException e) {
+                //throw new RuntimeException(e);
+            } finally {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    //throw new RuntimeException(e);
+                }
+            }
+
+            /*
             ClassLoader classLoader = getClass().getClassLoader();
-            InputStream  inputStream2 = classLoader.getResourceAsStream("configAcces.properties");
+            InputStream  inputStream2 = classLoader.getResourceAsStream(myObj);
+            InputStream inputStream2 = new FileInputStream(myObj.getAbsolutePath());
             if (inputStream2 != null) {
 
                 inputStream = inputStream2;
@@ -37,37 +84,31 @@ public class Propertie {
                 System.out.println("Resource configAcces.properties not found");
                 inputStream = new FileInputStream("src/main/resources/configAcces.properties");
             }
+            */
 
 
 
 
 
-            properties.load(inputStream);
 
             // Получение значений логина и пароля из файла
-            String username = properties.getProperty("username");
-            String password = properties.getProperty("password");
-            String addressGit = properties.getProperty("adresGit");
-            String tgToken = properties.getProperty("tgtoken");
-            String tgName = properties.getProperty("tgname");
+            String username = props.getProperty("username");
+            String password = props.getProperty("password");
+            String addressGit = props.getProperty("addressGit");
+            String tgToken = props.getProperty("tgtoken");
+            String tgName = props.getProperty("tgname");
+            System.out.println(username);
+            System.out.println(password.substring(0, 3));
+            System.out.println(addressGit);
+            System.out.println(tgToken.substring(0,3));
+            System.out.println(tgName);
+
 
             this.gitLogin = username;
             this.gitPass = password;
             this.gitAdress = addressGit;
             this.tgToken = tgToken;
             this.tgName = tgName;
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            // Закрытие потока
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 
     public String getTgToken() {

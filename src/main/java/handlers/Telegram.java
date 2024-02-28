@@ -14,6 +14,7 @@ import org.telegram.telegrambots.meta.api.objects.media.InputMedia;
 import org.telegram.telegrambots.meta.api.objects.media.InputMediaPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import resources.TgCommands;
+import services.MyLogger;
 
 import java.io.*;
 import java.net.*;
@@ -35,8 +36,8 @@ public class Telegram extends TelegramLongPollingBot {
 
     public Telegram(){
         if(!dw.checkConnection()){
-            System.out.println("Error connection for image download");
-            throw new ExceptionInInitializerError("Error connection for image download");
+            MyLogger.myError("Error connection for image download");
+            //throw new ExceptionInInitializerError("Error connection for image download");
         }
     }
 
@@ -95,14 +96,14 @@ public class Telegram extends TelegramLongPollingBot {
                     try {
                         sendTestAlbum(chatId, "Test album");
                     } catch (TelegramApiException e) {
-                        System.out.println(e.getMessage());
+                        MyLogger.myError(e.getMessage());
                         sendText("Error when album send "+ e.getMessage(), chatId);
                         //throw new RuntimeException(e);
                     } catch (IOException e){
-                        System.out.println(e.getMessage());
+                        MyLogger.myError(e.getMessage());
                         sendText("Error when album send "+ e.getMessage(), chatId);
                     } catch (Exception e){
-                        System.out.println(e.getMessage());
+                        MyLogger.myError(e.getMessage());
                         sendText("Error when album send "+ e.getMessage(), chatId);
                     }
                     break;
@@ -113,17 +114,17 @@ public class Telegram extends TelegramLongPollingBot {
                     } catch (TelegramApiException e) {
                         String error = "При отправке курса валют произошла ошибка (TelegramApiException) "+ e.getMessage() + "\n" +
                                 Arrays.toString(e.getStackTrace());
-                        System.out.println(error);
+                        MyLogger.myError(error);
                         sendText(error, chatId);
                     } catch (IOException e){
                         String error = "При отправке курса валют произошла ошибка (IOException) "+ e.getMessage() + "\n" +
                                 Arrays.toString(e.getStackTrace());
-                        System.out.println(error);
+                        MyLogger.myError(error);
                         sendText(error, chatId);
                     } catch (Exception e){
                         String error = "При отправке курса валют произошла ошибка (Exception) "+ e.getMessage() + "\n" +
                                 Arrays.toString(e.getStackTrace());
-                        System.out.println(error);
+                        MyLogger.myError(error);
                         sendText(error, chatId);
                     }
             }

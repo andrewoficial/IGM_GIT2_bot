@@ -40,3 +40,5 @@ build/
 ### Sensetive Data ###
 .src/main/resources/configAcces.properties
 /logs/
+/conf/
+/out/
