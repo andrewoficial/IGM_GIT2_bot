@@ -9,17 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="translate more">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/IGM_GIT2_bot_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/TerminalPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/MyLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="Fix: log; threads priority; Noi Server; Add: custom log obj">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Network.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Repositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/Repositories.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +136,9 @@
       <workItem from="1706343052340" duration="464000" />
       <workItem from="1708949654995" duration="6452000" />
       <workItem from="1708957581406" duration="11336000" />
-      <workItem from="1709121084949" duration="5650000" />
+      <workItem from="1709121084949" duration="10605000" />
+      <workItem from="1709231452123" duration="311000" />
+      <workItem from="1725187237261" duration="2434000" />
     </task>
     <task id="LOCAL-00001" summary="Some translate">
       <option name="closed" value="true" />
@@ -161,16 +156,36 @@
       <option name="project" value="LOCAL" />
       <updated>1708950689792</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix: log; threads priority; Noi Server; Add: custom log obj">
+      <option name="closed" value="true" />
+      <created>1709128680993</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709128680993</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Some translate" />
     <MESSAGE value="translate more" />
-    <option name="LAST_COMMIT_MESSAGE" value="translate more" />
+    <MESSAGE value="Fix: log; threads priority; Noi Server; Add: custom log obj" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: log; threads priority; Noi Server; Add: custom log obj" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IGM_GIT2_bot_iml$Application.ic" NAME="Application Coverage Results" MODIFIED="1687888555863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
