@@ -1,8 +1,10 @@
 package resources;
 
+import services.MyLogger;
+
 public interface   TgCommand {
     public default void run(){
-        System.out.println("Необрабатываемая команда run (дефолтная реализация в интерфейсе)");
+        MyLogger.myInfo("Необрабатываемая команда run (дефолтная реализация в интерфейсе)");
     };
 
     public default String getTextAnswer(){

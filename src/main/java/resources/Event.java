@@ -1,17 +1,17 @@
 package resources;
 
+import handlers.RepoConfig;
 import handlers.Telegram;
 import org.json.JSONException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import services.MyLogger;
+
+import static resources.AppConstants.*;
 
 
 public class Event {
@@ -91,24 +91,15 @@ public class Event {
         MyLogger.myError("Try send");
         Telegram tg = new Telegram();
         String marker = "#"+this.repo+"_"+this.number;
-        Repositories repository = Repositories.DEFAULT;
-        MyLogger.myError(String.valueOf(repository));
-        //Проверки
-        if(this.body.length()>300){
-            this.body = this.body.substring(0, Math.min(250, body.length()));
-            this.body += "[the text has been shortened by the Java bridge]";
+        RepoConfig.RepoInfo repository = RepoConfig.find(this.repo);
+        if(this.body.length() > BODY_TRUNCATE_THRESHOLD){
+            this.body = this.body.substring(0, Math.min(BODY_TRUNCATE_LENGTH, body.length()));
+            this.body += BODY_TRUNCATE_SUFFIX;
         }
 
-        for (Repositories value : Repositories.values()) {
-            if(this.repo.equalsIgnoreCase(value.getRepoName())){
-                repository = value;
-            }
-        }
-
-        System.out.println(body);
-        //Формирование заголовка
-        String message = "В репозитории " + repository.getRepoName() + " \n";
-        System.out.println();
+        MyLogger.myInfo(body);
+        String message = "В репозитории " + repository.getName() + " \n";
+        MyLogger.myInfo("");
         if("opened".equalsIgnoreCase(action)){
             message += "Открыта новая задача: " + this.title + " \n";
             if(body != null && body != "")
@@ -161,9 +152,9 @@ public class Event {
 
         //Если одна картинка
         if(this.attachments.length == 1){
-            System.out.println("Sending one picture");
-            System.out.println("== picture source:");
-            System.out.println(attachments[0]);
+            MyLogger.myInfo("Sending one picture");
+            MyLogger.myInfo("== picture source:");
+            MyLogger.myInfo(attachments[0]);
             /*
             attachments[0] = attachments[0].replace("![image", "/");
             System.out.println("== picture source fixed:");
@@ -233,7 +224,6 @@ public class Event {
                     MyLogger.myError(errors);
                     //System.out.println(e.getStackTrace());
                 } catch (TelegramApiException e1) {
-                    System.out.println(" Problem sending error message");
                     MyLogger.myError(" Problem sending error message");
                     //throw new RuntimeException(e);
                 } finally {

@@ -1,4 +1,6 @@
 package resources;
+import services.MyLogger;
+
 /**
  * Перечисление команд со стороны Telegram
  */
@@ -12,7 +14,7 @@ public enum TgCommands implements TgCommand{
                 "\n Their list is available with the /help command";
         @Override
         public void run() {
-            System.out.println(answer);
+            MyLogger.myDebug(answer);
         }
 
         @Override
@@ -27,7 +29,7 @@ public enum TgCommands implements TgCommand{
             "Команда вывода подсказки пользователю"){
         @Override
         public void run() {
-            System.out.println("Выполняется команда help");
+            MyLogger.myInfo("Выполняется команда help");
         }
 
         @Override
@@ -47,7 +49,7 @@ public enum TgCommands implements TgCommand{
             "Тестовая отправка изображения"){
         @Override
         public void run() {
-            System.out.println("Выполняется команда help");
+            MyLogger.myInfo("Выполняется команда help");
         }
 
         @Override
@@ -67,7 +69,7 @@ public enum TgCommands implements TgCommand{
             "Тестовая отправка альбома"){
         @Override
         public void run() {
-            System.out.println("Выполняется команда talb");
+            MyLogger.myInfo("Выполняется команда talb");
         }
 
         @Override
@@ -82,7 +84,7 @@ public enum TgCommands implements TgCommand{
             "Курс валюты тенге к рублю"){
         @Override
         public void run() {
-            System.out.println("Выполняется команда rgrur");
+            MyLogger.myInfo("Выполняется команда rgrur");
         }
 
         @Override

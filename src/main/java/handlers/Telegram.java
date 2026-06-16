@@ -61,7 +61,7 @@ public class Telegram extends TelegramLongPollingBot {
                 parseMessage(inMess.getText(), chatId);
             }
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            MyLogger.myError(e.toString());
         }
     }
 
@@ -133,7 +133,7 @@ public class Telegram extends TelegramLongPollingBot {
 
     public void sendText(String text, String chatId) throws TelegramApiException {
         SendMessage outMess = new SendMessage();
-        text = text + " chat id is " + chatId;
+        //text = text + " chat id is " + chatId;
         outMess.setChatId(chatId);
         outMess.setText(text);
         execute(outMess);

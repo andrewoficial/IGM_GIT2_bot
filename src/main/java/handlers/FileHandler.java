@@ -1,5 +1,6 @@
 package handlers;
 
+import services.MyLogger;
 import java.io.*;
 
 
@@ -36,7 +37,7 @@ public class FileHandler {
         File outputFile = new File(tmpDir, "image.jpg");
         try (FileOutputStream outputStream = new FileOutputStream(outputFile)) {
             outputStream.write(imageBytes);
-            System.out.println("Image downloaded and saved to: " + outputFile.getAbsolutePath());
+            MyLogger.myInfo("Image downloaded and saved to: " + outputFile.getAbsolutePath());
         } catch (IOException e) {
             throw new ExceptionInInitializerError("Can't save test image");
         }

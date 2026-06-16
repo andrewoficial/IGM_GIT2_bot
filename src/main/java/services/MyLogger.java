@@ -7,13 +7,19 @@ public class MyLogger {
     public static final Logger logger2 = LogManager.getLogger(MyLogger.class);
 
     public static final void myError (String msg){
-        System.out.println(msg);
         logger2.error(msg);
     }
 
+    public static final void myWarn (String msg){
+        logger2.warn(msg);
+    }
+
     public static final void myInfo (String msg){
-        System.out.println(msg);
         logger2.info(msg);
+    }
+
+    public static final void myDebug (String msg){
+        logger2.debug(msg);
     }
 
 }

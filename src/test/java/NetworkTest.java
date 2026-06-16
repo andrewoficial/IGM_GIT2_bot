@@ -264,6 +264,6 @@ public class NetworkTest {
     private String readFileToString(String filePath) throws IOException {
         Path path = Paths.get(filePath);
         byte[] bytes = Files.readAllBytes(path);
-        return new String(bytes);
+        return new String(bytes, java.nio.charset.StandardCharsets.UTF_8);
     }
 }

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -75,7 +77,7 @@ public class Network implements Runnable{
         private ServerSocketChannel serverChannel;
         private HashSet<SocketChannel> channels = new HashSet<>();
 
-        private static final int BUF_SIZE = 180000; //150024 min
+        private static final int BUF_SIZE = 65536;
         private volatile ByteBuffer byteBuffer;
         private Selector selector;
 
@@ -147,8 +149,8 @@ public class Network implements Runnable{
                         continue;
                     }
                     errCount = 0;
-                    String fromChannel = new String(byteBuffer.array(), 0, byteBuffer.limit(), StandardCharsets.UTF_8);
-                    byteBuffer.compact(); // Сброс позиции и перемещение оставшихся данных в начало буфера ...
+                    String fromChannel = new String(byteBuffer.array(), 0, read, StandardCharsets.UTF_8);
+                    byteBuffer.clear();
                     Event event = dataReaction(fromChannel);
                     if(event != null)
                         event.sendToTelegram();
@@ -422,52 +424,20 @@ public class Network implements Runnable{
         }
         MyLogger.myInfo("Start parse================================================");
         MyLogger.myInfo(body);
-        ArrayList <String> links= new ArrayList<>();
-        while(body.contains("(/") && body.contains(")")){
-            MyLogger.myInfo(String.valueOf(body.indexOf("(/")));
-            MyLogger.myInfo(String.valueOf(body.indexOf(")")));
-            String targetPart = body.substring(body.indexOf("(/")+1, body.indexOf(")"));
-            MyLogger.myInfo("Str to add: ");
-            MyLogger.myInfo(targetPart);
-            links.add(targetPart);
-
-            body = body.substring(body.indexOf(")"));
-            if(body.length() > 3){
-                body = body.substring(2);
-            }
-
-            MyLogger.myInfo("Last part: ");
-            MyLogger.myInfo(body);
-
+        ArrayList<String> links = new ArrayList<>();
+        Matcher matcher = Pattern.compile(
+                "!\\[.*?\\]\\((/[^)]+)\\)").matcher(body);
+        while (matcher.find()) {
+            links.add(matcher.group(1));
+            MyLogger.myInfo("Found attachment: " + matcher.group(1));
         }
 
-        /*
-        String [] attachments = body.split("attachments");
-        System.out.println("Found attachments" + attachments.length);
-
-        ArrayList <String> links = new ArrayList<>();
-        if(attachments.length > 0){
-            for(int i=0; i<attachments.length; i++){
-                if(attachments [i].contains("/")){
-                    attachments [i] = attachments[i].split("\\)")[0];
-                    attachments [i] = attachments[i].replace("]", "");
-                    attachments [i] = attachments[i].replace("(", "");
-                    links.add(attachments [i]);
-                }
-            }
-        }
-        attachments = new String[links.size()];
-        
-        */
-        int i = 0;
         String[] attachments = new String[links.size()];
-        for (String link : links) {
-            attachments [i++] = "http://192.168.1.162:3000" + link;
+        for (int i = 0; i < links.size(); i++) {
+            attachments[i] = "http://192.168.1.162:3000" + links.get(i);
         }
 
-        for (String link : links) {
-            body = body.replace("![image]("+link+")", "");
-        }
+        body = body.replaceAll("!\\[.*?\\]\\(/[^)]+\\)", "");
         Event event = new Event(repo, number, action, login, body, title, attachments);
         MyLogger.myInfo(String.valueOf(event));
         return event;

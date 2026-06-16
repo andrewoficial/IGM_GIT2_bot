@@ -19,6 +19,7 @@ public enum Repositories {
     IGM12M_IGM13M("IGM12M_IGM13M", "-823582989"),
     VegaConnect("VegaConnect", "-823582989"),
     VOC("VOC", "-823582989"),
+    long_gas_java("long_gas_java", "-823582989"),
     DEFAULT("NotDefined", "1811468195");
 
 

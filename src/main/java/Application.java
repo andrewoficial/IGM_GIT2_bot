@@ -1,59 +1,20 @@
 import handlers.Network;
+import handlers.Propertie;
 import handlers.Telegram;
-
 import handlers.TerminalPool;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.meta.generics.BotSession;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
-
-import java.net.*;
-import java.util.Scanner;
-import java.util.Set;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import services.MyLogger;
 
-
-/**
- * The Application class is the entry point of the application.
- * Threads are created to process web requests and telegram requests.
- *
- * <p>Author: Andrew Kantser</p>
- * <p>Date: 2023-06-25</p>
- * <p>Description: First, an object is created to interact with the telegram API.
- * Then Run in a separate port listener thread. Then receiving commands from the terminal.</p>
- */
-
+import java.net.*;
+import java.util.List;
 
 public class Application {
 
-
-    /**
-     * The main method is the entry point of the application.
-     * It initializes the necessary components and starts the execution.
-     *
-     * @param args The command-line arguments passed to the application.
-     */
     public static void main(String[] args) {
-
-        TelegramBotsApi telegramBotsApi = null;
-        try {
-            telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-        } catch (TelegramApiException e) {
-            MyLogger.myError("new TelegramBotsApi" + e.getMessage());
-            MyLogger.logger2.error(e.getStackTrace());
-            throw new RuntimeException(e);
-        }
-
-        try {
-            telegramBotsApi.registerBot(new Telegram());
-        } catch (TelegramApiException e) {
-            MyLogger.myError("registerBot" + e.getMessage());
-            MyLogger.logger2.error(e.getStackTrace());
-            throw new RuntimeException(e);
-        }
-        MyLogger.myError("run telegram handler...");
+        Propertie config = new Propertie();
+        setupTelegramProxy(config);
 
         InetSocketAddress address = new InetSocketAddress(2222);
         Network gitHandler = new Network(address);
@@ -61,17 +22,85 @@ public class Application {
         thread1.setName("Git Listener");
         thread1.setPriority(5);
         thread1.start();
-        MyLogger.myError("run git listener...");
+        MyLogger.myInfo("run git listener...");
 
-        TerminalPool terminalPool= new TerminalPool();
+        TerminalPool terminalPool = new TerminalPool();
         Thread thread2 = new Thread(terminalPool);
         thread2.setName("Terminal Listener");
         thread2.setPriority(Thread.MIN_PRIORITY);
         thread2.start();
-        MyLogger.myError("run terminal handler...");
+        MyLogger.myInfo("run terminal handler...");
 
+        startTelegramBot();
+    }
 
+    private static void setupTelegramProxy(Propertie config) {
+        if (!config.isProxyTelegramEnable()) {
+            MyLogger.myInfo("Telegram proxy: disabled");
+            return;
+        }
+        String host = config.getProxyTelegramAddress();
+        int port = config.getProxyTelegramPort();
+        String login = config.getProxyTelegramLogin();
+        String password = config.getProxyTelegramPassword();
 
+        if (!login.isEmpty()) {
+            System.setProperty("java.net.socks.username", login);
+            System.setProperty("java.net.socks.password", password);
+        }
 
+        ProxySelector defaultSelector = ProxySelector.getDefault();
+        ProxySelector telegramProxy = new ProxySelector() {
+            @Override
+            public List<Proxy> select(URI uri) {
+                if (uri != null && uri.getHost() != null && uri.getHost().contains("api.telegram.org")) {
+                    return List.of(new Proxy(Proxy.Type.SOCKS, new InetSocketAddress(host, port)));
+                }
+                if (defaultSelector != null) {
+                    return defaultSelector.select(uri);
+                }
+                return List.of(Proxy.NO_PROXY);
+            }
+
+            @Override
+            public void connectFailed(URI uri, SocketAddress sa, IOException e) {
+                if (defaultSelector != null) {
+                    defaultSelector.connectFailed(uri, sa, e);
+                }
+            }
+        };
+        ProxySelector.setDefault(telegramProxy);
+        MyLogger.myInfo("Telegram proxy: SOCKS5 " + host + ":" + port);
+    }
+
+    private static void startTelegramBot() {
+        Thread tgThread = new Thread(() -> {
+            while (true) {
+                try {
+                    TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+                    BotSession session = telegramBotsApi.registerBot(new Telegram());
+                    MyLogger.myInfo("Telegram bot registered, monitoring session...");
+
+                    while (session.isRunning()) {
+                        Thread.sleep(5000);
+                    }
+                    MyLogger.myWarn("Telegram session stopped, reconnecting...");
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    return;
+                } catch (Exception e) {
+                    MyLogger.myError("Telegram error (" + e.getMessage() + "), retrying in 30s...");
+                    try {
+                        Thread.sleep(30000);
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                        return;
+                    }
+                }
+            }
+        });
+        tgThread.setName("Telegram-Bot");
+        tgThread.setDaemon(true);
+        tgThread.start();
     }
 }
