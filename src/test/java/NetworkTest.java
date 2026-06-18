@@ -251,6 +251,29 @@ public class NetworkTest {
 
 
     @Test
+    public void testValidDataReaction_ImgTag() {
+        //Комментарий с новой HTML img-вставкой (Gitea новый формат)
+
+        String filePath = "src/test/java/Samples/sample_14.txt";
+        String content = "";
+        try {
+            content = readFileToString(filePath);
+        } catch (IOException e) {
+            System.err.println("Ошибка при чтении файла: " + filePath + "  " + e.getMessage());
+        }
+        Event result = null;
+        result = network.dataReaction(content);
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals("long_gas_java", result.getRepo());
+        Assertions.assertEquals("1.0.16 При выборе газа обновляется на те, что были   канал 1 не могу поменять даже на стандартный CL2  ", result.getBody());
+        Assertions.assertEquals("Перехват управления", result.getTitle());
+        Assertions.assertEquals("13+rodnichenko.e@noreply.localhost", result.getLogin());
+        Assertions.assertEquals("19", result.getNumber());
+        Assertions.assertEquals(1, result.getAttachments().length);
+        Assertions.assertEquals("http://192.168.1.162:3000/attachments/2f046fd9-bea1-4a92-88de-33e59d7b5417", result.getAttachments()[0]);
+    }
+
+    @Test
     public void testInvalidDataReaction_14() {
         // Проверка на сломанную строку (без "{")
 

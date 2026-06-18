@@ -172,6 +172,7 @@ public class TerminalPool implements Runnable {
     }
 
     private void handleVersion() {
+        MyLogger.myInfo(String.format("App:  v%s", AppVersion.get()));
         MyLogger.myInfo(String.format("Java: %s (%s)", System.getProperty("java.version"),
                 System.getProperty("java.vm.name")));
         MyLogger.myInfo(String.format("OS:   %s %s", System.getProperty("os.name"),

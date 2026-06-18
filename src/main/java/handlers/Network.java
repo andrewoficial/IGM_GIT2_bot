@@ -8,12 +8,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import resources.Event;
@@ -424,20 +426,47 @@ public class Network implements Runnable{
         }
         MyLogger.myInfo("Start parse================================================");
         MyLogger.myInfo(body);
-        ArrayList<String> links = new ArrayList<>();
-        Matcher matcher = Pattern.compile(
+        LinkedHashSet<String> uniqueUrls = new LinkedHashSet<>();
+
+        Matcher markdownMatcher = Pattern.compile(
                 "!\\[.*?\\]\\((/[^)]+)\\)").matcher(body);
-        while (matcher.find()) {
-            links.add(matcher.group(1));
-            MyLogger.myInfo("Found attachment: " + matcher.group(1));
+        while (markdownMatcher.find()) {
+            String path = markdownMatcher.group(1);
+            uniqueUrls.add("http://192.168.1.162:3000" + path);
+            MyLogger.myInfo("Found attachment: " + path);
         }
 
-        String[] attachments = new String[links.size()];
-        for (int i = 0; i < links.size(); i++) {
-            attachments[i] = "http://192.168.1.162:3000" + links.get(i);
+        Matcher htmlImgMatcher = Pattern.compile(
+                "<img[^>]+src=\"([^\"]+)\"[^>]*>", Pattern.CASE_INSENSITIVE).matcher(body);
+        while (htmlImgMatcher.find()) {
+            String src = htmlImgMatcher.group(1);
+            if (!src.startsWith("http://") && !src.startsWith("https://")) {
+                if (!src.startsWith("/")) {
+                    src = "/" + src;
+                }
+                src = "http://192.168.1.162:3000" + src;
+            }
+            uniqueUrls.add(src);
+            MyLogger.myInfo("Found attachment from img tag: " + src);
         }
+
+        for (String assetsKey : new String[]{"comment", "issue"}) {
+            try {
+                JSONArray assets = jsonObject.getJSONObject(assetsKey).getJSONArray("assets");
+                for (int i = 0; i < assets.length(); i++) {
+                    String url = assets.getJSONObject(i).getString("browser_download_url");
+                    uniqueUrls.add(url);
+                    MyLogger.myInfo("Found attachment from " + assetsKey + ".assets: " + url);
+                }
+            } catch (JSONException e) {
+                // no assets in this key
+            }
+        }
+
+        String[] attachments = uniqueUrls.toArray(new String[0]);
 
         body = body.replaceAll("!\\[.*?\\]\\(/[^)]+\\)", "");
+        body = body.replaceAll("(?i)<img[^>]*>", "");
         Event event = new Event(repo, number, action, login, body, title, attachments);
         MyLogger.myInfo(String.valueOf(event));
         return event;

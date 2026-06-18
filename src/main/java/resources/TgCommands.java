@@ -95,6 +95,16 @@ public enum TgCommands implements TgCommand{
             return this.command;
         }
     },
+    appversion("/version",
+            "Версия приложения"){
+        @Override
+        public String getTextAnswer() {
+            return "IGM_GIT2_bot v" + handlers.AppVersion.get();
+        }
+        public String getCommand(){
+            return this.command;
+        }
+    },
     stop("string1", "Des1");
 
     String command = "";

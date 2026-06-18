@@ -9,23 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="Fix: log; threads priority; Noi Server; Add: custom log obj">
+    <list default="true" id="87dbc5c3-73c0-4263-bd5c-02e715f178cd" name="Changes" comment="fix:picture comment, falling, auth; add:proxy support, repo config, gitea auth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/ExchangeRate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/ExchangeRate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Network.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Network.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/PictureGit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/PictureGit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Propertie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/Telegram.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/handlers/TerminalPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/TerminalPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/Repositories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/Repositories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/resources/TgCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/TgCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/resources/TgCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/TgCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/MyLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/MyLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/NetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NetworkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +25,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="96" />
+    <option name="cachedIndexableFilesCount" value="103" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,23 +59,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.2179688085446068" />
-      <entry key="MS500" value="2.8464669387650288" />
-      <entry key="S2" value="8.774388234082373" />
-      <entry key="S5" value="17.53802155694234" />
-      <entry key="S10" value="27.09088732863178" />
-      <entry key="S30" value="41.6103741611215" />
-      <entry key="S60" value="52.08887385256989" />
-      <entry key="M2" value="73.65124303236475" />
-      <entry key="M5" value="111.7684262118134" />
-      <entry key="M10" value="159.999644993141" />
-      <entry key="M15" value="235.03113909191336" />
-      <entry key="M30" value="497.7198585805842" />
-      <entry key="H1" value="942.6687382402691" />
-      <entry key="H2" value="1527.0078290683173" />
-      <entry key="H4" value="2074.3980590495007" />
-      <entry key="D1" value="2782.8260432617894" />
-      <entry key="W1" value="2937.154779109849" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.000000310761053" />
+      <entry key="S5" value="1.0049157585354518" />
+      <entry key="S10" value="1.271553828634909" />
+      <entry key="S30" value="20.246616518474884" />
+      <entry key="S60" value="75.33332644136439" />
+      <entry key="M2" value="156.6687900415397" />
+      <entry key="M5" value="269.30421923186" />
+      <entry key="M10" value="361.9893324307136" />
+      <entry key="M15" value="444.160645534909" />
+      <entry key="M30" value="704.4293721880755" />
+      <entry key="H1" value="1157.348896050517" />
+      <entry key="H2" value="1766.2382961766248" />
+      <entry key="H4" value="2347.555950603031" />
+      <entry key="D1" value="3112.452003840317" />
+      <entry key="W1" value="3280.6832163440477" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -106,23 +97,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.1749352638982282" />
-      <entry key="MS500" value="2.823864509901073" />
-      <entry key="S2" value="8.756741420856068" />
-      <entry key="S5" value="17.52372437798106" />
-      <entry key="S10" value="27.079619532870428" />
-      <entry key="S30" value="41.60440162363191" />
-      <entry key="S60" value="52.08431953318046" />
-      <entry key="M2" value="73.64666842832489" />
-      <entry key="M5" value="111.76486796231445" />
-      <entry key="M10" value="159.99697929655798" />
-      <entry key="M15" value="235.02860647836613" />
-      <entry key="M30" value="497.7173258879877" />
-      <entry key="H1" value="942.6663707811882" />
-      <entry key="H2" value="1527.0059227899376" />
-      <entry key="H4" value="2074.3967738333267" />
-      <entry key="D1" value="2782.8257587877306" />
-      <entry key="W1" value="2937.1547363079735" />
+      <entry key="MS100" value="0.5285090202806901" />
+      <entry key="MS500" value="0.880259013563151" />
+      <entry key="S2" value="0.9686184520127405" />
+      <entry key="S5" value="0.991946741462047" />
+      <entry key="S10" value="1.2613474463009258" />
+      <entry key="S30" value="20.229942940373824" />
+      <entry key="S60" value="75.31603940303361" />
+      <entry key="M2" value="156.6549845053525" />
+      <entry key="M5" value="269.29586277734586" />
+      <entry key="M10" value="361.9838090465331" />
+      <entry key="M15" value="444.15614884358547" />
+      <entry key="M30" value="704.4258597661743" />
+      <entry key="H1" value="1157.3460195823852" />
+      <entry key="H2" value="1766.2361050403304" />
+      <entry key="H4" value="2347.5545017543395" />
+      <entry key="D1" value="3112.451686286873" />
+      <entry key="W1" value="3280.6831686143832" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -138,31 +129,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "Maven.IGM_GIT2_bot [clean].executor": "Run",
-    "Maven.IGM_GIT2_bot [package].executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/PortablePlatform/Documents/Documents/PR/Java/IGM_GIT2_bot/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IGM_GIT2_bot [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.IGM_GIT2_bot [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/PortablePlatform/Documents/Documents/PR/Java/IGM_GIT2_bot/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\PortablePlatform\Documents\Documents\PR\Java\IGM_GIT2_bot\src\main\resources" />
@@ -283,7 +274,8 @@
     <MESSAGE value="Some translate" />
     <MESSAGE value="translate more" />
     <MESSAGE value="Fix: log; threads priority; Noi Server; Add: custom log obj" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix: log; threads priority; Noi Server; Add: custom log obj" />
+    <MESSAGE value="fix:picture comment, falling, auth; add:proxy support, repo config, gitea auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:picture comment, falling, auth; add:proxy support, repo config, gitea auth" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IGM_GIT2_bot_iml$Application.ic" NAME="Application Coverage Results" MODIFIED="1687888555863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

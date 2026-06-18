@@ -108,6 +108,11 @@ public class Telegram extends TelegramLongPollingBot {
                     }
                     break;
 
+                case appversion:
+                    response = command.getTextAnswer();
+                    sendText(response, chatId);
+                    break;
+
                 case tgrur:
                     try {
                         sendTgRubCourse(chatId);
